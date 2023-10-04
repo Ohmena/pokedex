@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="shortcut icon" href="imgs/pokeball-logo.png" type="image/x-icon">
+  <title>Pokedex</title>
+</head>
+<body>
+  <div class="pokedex container">
+    <h1>Pokédex</h1>
+
+    <div class="search-pokemon">
+      <form id="search-form">
+        <input type="text" id="search-input" placeholder="Pesquisar pokémon por nome ou número">
+        <div class="pokemon-button">
+          <button class="enviar">Pesquisar</button>
+          <button class="btn apagar">Refresh</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="pokemon container" data-pokemon></div>
+
+  <div id="pokemon-not-found" class="container"></div>
+
+  <div class="container botao">
+    <button data-button="previous">Anterior</button>
+    <button data-button="next">Próxima</button>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
