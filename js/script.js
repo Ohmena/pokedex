@@ -1,27 +1,6 @@
 const pokemonItem = document.querySelector('[data-pokemon]');
 const notFound = document.getElementById('pokemon-not-found');
 
-const colors = {
-  normal: '#BCBEB4',
-  grass: '#8BD54F',
-  fire: '#C84130',
-  water: '#56AEFF',
-  fighting: '#A05845',
-  flying: '#7AA4FF',
-  poison: '#A35A9C',
-  ground: '#E9CC61',
-  rock: '#CEBC73',
-  bug: '#C2D11F',
-  ghost: '#7974D4',
-  electric: '#FCE73D',
-  psychic: '#F964B4',
-  ice: '#96F1FF',
-  dragon: '#8977FF',
-  dark: '#8D6A56',
-  steel: '#C4C3DB',
-  fairy: '#FCADFF'
-}
-
 // botão de página 'anterior' e 'próxima'
 const previousPageButton = document.querySelector('[data-button="previous"]');
 const nextPageButton = document.querySelector('[data-button="next"]');
@@ -74,11 +53,57 @@ const getPokemonFetch = async (id) => {
   } 
 };
 
+const colors = {
+  normal: '#BCBEB4',
+  grass: '#8BD54F',
+  fire: '#C84130',
+  water: '#56AEFF',
+  fighting: '#A05845',
+  flying: '#7AA4FF',
+  poison: '#A35A9C',
+  ground: '#E9CC61',
+  rock: '#CEBC73',
+  bug: '#C2D11F',
+  ghost: '#7974D4',
+  electric: '#FCE73D',
+  psychic: '#F964B4',
+  ice: '#96F1FF',
+  dragon: '#8977FF',
+  dark: '#8D6A56',
+  steel: '#C4C3DB',
+  fairy: '#FCADFF'
+}
+
+const spanColors = {
+  normal: '#a5a79e',
+  grass: '#71b23b',
+  fire: '#d52019',
+  water: '#77c3ea',
+  fighting: '#bd5d43',
+  flying: '#6592f2',
+  poison: '#c75bbc',
+  ground: '#d1b651',
+  rock: '#bcaa63',
+  bug: '#aab80f',
+  ghost: '#746eed',
+  electric: '#ead534',
+  psychic: '#FFA3D7',
+  ice: '#83e1f4',
+  dragon: '#7360ed',
+  dark: '#aa704e',
+  steel: '#a3a2c1',
+  fairy: '#e48fe7'
+}
+
 // mudar a cor de fundo da <div> para a cor da tipagem do pokémon
 //caso não tenha a tipagem no objeto, retorna uma cor padrão
 const getColorByType = (type) => {
   const defaultColor = '#12bcae';
   return colors[type] || defaultColor;
+}
+
+const getSpanColor = (color) => {
+  return spanColors[color];
 }
 
 const createPokemon = (pokemon) => {
@@ -94,7 +119,7 @@ const createPokemon = (pokemon) => {
     const typeSpan = document.createElement('span');
     typeSpan.innerHTML = typeName;
     typeSpan.classList.add('type-item');
-    typeSpan.style.backgroundColor = getColorByType(typeName);
+    typeSpan.style.backgroundColor = getSpanColor(typeName);
     return typeSpan.outerHTML;
   }).join('');
 
